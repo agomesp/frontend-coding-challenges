@@ -6,7 +6,7 @@ import { User, Sparkles, School, Book } from "@lib/components/Icons";
 
 export const CharacterDetail = ({ character }: { character: Character }) => {
   return (
-    <div className="container mx-auto flex max-w-4xl justify-center gap-4">
+    <div className="container mx-auto mt-14 flex max-w-4xl justify-center gap-4">
       <div className="flex w-3xs flex-col gap-3.5">
         <CharacterCard character={character} />
         <span className="text-base text-amber-50/30">
@@ -24,8 +24,8 @@ export const CharacterDetail = ({ character }: { character: Character }) => {
               value={formatDate(character.dateOfBirth) || "—"}
             />
             <InfoSection.Item label="Ancestry" value={character.ancestry || "—"} />
-            <InfoSection.Item label="Eye Colour" value={character.eyeColour || "—"} />
-            <InfoSection.Item label="Hair Colour" value={character.hairColour || "—"} />
+            <InfoSection.Item label="Eye Color" value={character.eyeColour || "—"} />
+            <InfoSection.Item label="Hair Color" value={character.hairColour || "—"} />
           </InfoSection.Grid>
         </InfoSection>
 

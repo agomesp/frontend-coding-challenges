@@ -2,9 +2,10 @@ import { Spinner } from "@lib/components/Spinner";
 import { CharacterCard } from "./CharacterCard";
 import { useCharacters } from "../-hooks/useCharacters";
 import { Link } from "@tanstack/react-router";
+import { CharacterFilterType } from "@lib/constants/filters";
 
-export const CharactersGrid = () => {
-  const { characters, isLoading, isError } = useCharacters();
+export const CharactersGrid = ({ filter }: { filter?: CharacterFilterType }) => {
+  const { characters, isLoading, isError } = useCharacters(filter);
 
   if (isLoading) {
     return (
@@ -35,9 +36,8 @@ export const CharactersGrid = () => {
   return (
     <div className="container mx-auto grid w-min grid-cols-[repeat(auto-fill,minmax(200px,max-content))] gap-4">
       {characters.map((character) => (
-        <Link to="/$characterId" params={{ characterId: character.id }}>
+        <Link key={character.id} to="/$characterId" params={{ characterId: character.id }}>
           <CharacterCard
-            key={character.id}
             character={character}
             className="transition-transform duration-300 hover:scale-105 hover:shadow-xl"
           />
